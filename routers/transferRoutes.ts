@@ -1,9 +1,13 @@
 import { Router } from "express";
-import { transferMoney } from "../controllers/transferController";
+import {
+  getTransferHistory,
+  transferMoney,
+} from "../controllers/transferController";
 import { protect } from "../middlewares/authMiddleware";
 
 const router = Router();
-
-router.post("/", protect, transferMoney);
+router.use(protect);
+router.post("/", transferMoney);
+router.get("/history", getTransferHistory);
 
 export default router;

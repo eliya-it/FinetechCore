@@ -41,16 +41,3 @@ export const getLedgerEntries = async (req: Request, res: Response) => {
     ledgerEntries,
   });
 };
-
-export const getRiskLogs = async (req: Request, res: Response) => {
-  const userId = req.user.id;
-  const riskLogs = await prisma.riskLog.findMany({
-    where: { userId },
-    orderBy: { createdAt: "desc" },
-  });
-
-  res.json({
-    status: "success",
-    riskLogs,
-  });
-};

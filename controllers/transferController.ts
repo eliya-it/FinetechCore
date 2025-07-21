@@ -117,3 +117,19 @@ export const transferMoney = async (req: Request, res: Response) => {
     return res.status(500).json({ error: "Transfer failed" });
   }
 };
+
+export const getTransferHistory = async (req: Request, res: Response) => {
+  const userId = req.user.id;
+
+  const transactions = await prisma.transaction.findMany({
+    where: {
+      OR: [{ fromUser: userId }, { toUser: userId }],
+    },
+    orderBy: { createdAt: "desc" },
+  });
+
+  res.json({
+    status: "success",
+    transactions,
+  });
+};
