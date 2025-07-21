@@ -33,6 +33,16 @@ export type Wallet = $Result.DefaultSelection<Prisma.$WalletPayload>
  * 
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
+/**
+ * Model RiskRule
+ * 
+ */
+export type RiskRule = $Result.DefaultSelection<Prisma.$RiskRulePayload>
+/**
+ * Model RiskLog
+ * 
+ */
+export type RiskLog = $Result.DefaultSelection<Prisma.$RiskLogPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -198,6 +208,26 @@ export class PrismaClient<
     * ```
     */
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.riskRule`: Exposes CRUD operations for the **RiskRule** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more RiskRules
+    * const riskRules = await prisma.riskRule.findMany()
+    * ```
+    */
+  get riskRule(): Prisma.RiskRuleDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.riskLog`: Exposes CRUD operations for the **RiskLog** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more RiskLogs
+    * const riskLogs = await prisma.riskLog.findMany()
+    * ```
+    */
+  get riskLog(): Prisma.RiskLogDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -641,7 +671,9 @@ export namespace Prisma {
     Transaction: 'Transaction',
     LedgerEntry: 'LedgerEntry',
     Wallet: 'Wallet',
-    User: 'User'
+    User: 'User',
+    RiskRule: 'RiskRule',
+    RiskLog: 'RiskLog'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -660,7 +692,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "transaction" | "ledgerEntry" | "wallet" | "user"
+      modelProps: "transaction" | "ledgerEntry" | "wallet" | "user" | "riskRule" | "riskLog"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -960,6 +992,154 @@ export namespace Prisma {
           }
         }
       }
+      RiskRule: {
+        payload: Prisma.$RiskRulePayload<ExtArgs>
+        fields: Prisma.RiskRuleFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.RiskRuleFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskRulePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.RiskRuleFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskRulePayload>
+          }
+          findFirst: {
+            args: Prisma.RiskRuleFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskRulePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.RiskRuleFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskRulePayload>
+          }
+          findMany: {
+            args: Prisma.RiskRuleFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskRulePayload>[]
+          }
+          create: {
+            args: Prisma.RiskRuleCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskRulePayload>
+          }
+          createMany: {
+            args: Prisma.RiskRuleCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.RiskRuleCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskRulePayload>[]
+          }
+          delete: {
+            args: Prisma.RiskRuleDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskRulePayload>
+          }
+          update: {
+            args: Prisma.RiskRuleUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskRulePayload>
+          }
+          deleteMany: {
+            args: Prisma.RiskRuleDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.RiskRuleUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.RiskRuleUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskRulePayload>[]
+          }
+          upsert: {
+            args: Prisma.RiskRuleUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskRulePayload>
+          }
+          aggregate: {
+            args: Prisma.RiskRuleAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRiskRule>
+          }
+          groupBy: {
+            args: Prisma.RiskRuleGroupByArgs<ExtArgs>
+            result: $Utils.Optional<RiskRuleGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.RiskRuleCountArgs<ExtArgs>
+            result: $Utils.Optional<RiskRuleCountAggregateOutputType> | number
+          }
+        }
+      }
+      RiskLog: {
+        payload: Prisma.$RiskLogPayload<ExtArgs>
+        fields: Prisma.RiskLogFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.RiskLogFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskLogPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.RiskLogFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskLogPayload>
+          }
+          findFirst: {
+            args: Prisma.RiskLogFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskLogPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.RiskLogFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskLogPayload>
+          }
+          findMany: {
+            args: Prisma.RiskLogFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskLogPayload>[]
+          }
+          create: {
+            args: Prisma.RiskLogCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskLogPayload>
+          }
+          createMany: {
+            args: Prisma.RiskLogCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.RiskLogCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskLogPayload>[]
+          }
+          delete: {
+            args: Prisma.RiskLogDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskLogPayload>
+          }
+          update: {
+            args: Prisma.RiskLogUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskLogPayload>
+          }
+          deleteMany: {
+            args: Prisma.RiskLogDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.RiskLogUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.RiskLogUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskLogPayload>[]
+          }
+          upsert: {
+            args: Prisma.RiskLogUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RiskLogPayload>
+          }
+          aggregate: {
+            args: Prisma.RiskLogAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRiskLog>
+          }
+          groupBy: {
+            args: Prisma.RiskLogGroupByArgs<ExtArgs>
+            result: $Utils.Optional<RiskLogGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.RiskLogCountArgs<ExtArgs>
+            result: $Utils.Optional<RiskLogCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1048,6 +1228,8 @@ export namespace Prisma {
     ledgerEntry?: LedgerEntryOmit
     wallet?: WalletOmit
     user?: UserOmit
+    riskRule?: RiskRuleOmit
+    riskLog?: RiskLogOmit
   }
 
   /* Types for Logging */
@@ -5421,6 +5603,2018 @@ export namespace Prisma {
 
 
   /**
+   * Model RiskRule
+   */
+
+  export type AggregateRiskRule = {
+    _count: RiskRuleCountAggregateOutputType | null
+    _min: RiskRuleMinAggregateOutputType | null
+    _max: RiskRuleMaxAggregateOutputType | null
+  }
+
+  export type RiskRuleMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    type: string | null
+    enabled: boolean | null
+    createdAt: Date | null
+  }
+
+  export type RiskRuleMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    type: string | null
+    enabled: boolean | null
+    createdAt: Date | null
+  }
+
+  export type RiskRuleCountAggregateOutputType = {
+    id: number
+    name: number
+    type: number
+    config: number
+    enabled: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type RiskRuleMinAggregateInputType = {
+    id?: true
+    name?: true
+    type?: true
+    enabled?: true
+    createdAt?: true
+  }
+
+  export type RiskRuleMaxAggregateInputType = {
+    id?: true
+    name?: true
+    type?: true
+    enabled?: true
+    createdAt?: true
+  }
+
+  export type RiskRuleCountAggregateInputType = {
+    id?: true
+    name?: true
+    type?: true
+    config?: true
+    enabled?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type RiskRuleAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which RiskRule to aggregate.
+     */
+    where?: RiskRuleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RiskRules to fetch.
+     */
+    orderBy?: RiskRuleOrderByWithRelationInput | RiskRuleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: RiskRuleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RiskRules from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RiskRules.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned RiskRules
+    **/
+    _count?: true | RiskRuleCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: RiskRuleMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: RiskRuleMaxAggregateInputType
+  }
+
+  export type GetRiskRuleAggregateType<T extends RiskRuleAggregateArgs> = {
+        [P in keyof T & keyof AggregateRiskRule]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRiskRule[P]>
+      : GetScalarType<T[P], AggregateRiskRule[P]>
+  }
+
+
+
+
+  export type RiskRuleGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RiskRuleWhereInput
+    orderBy?: RiskRuleOrderByWithAggregationInput | RiskRuleOrderByWithAggregationInput[]
+    by: RiskRuleScalarFieldEnum[] | RiskRuleScalarFieldEnum
+    having?: RiskRuleScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: RiskRuleCountAggregateInputType | true
+    _min?: RiskRuleMinAggregateInputType
+    _max?: RiskRuleMaxAggregateInputType
+  }
+
+  export type RiskRuleGroupByOutputType = {
+    id: string
+    name: string
+    type: string
+    config: JsonValue
+    enabled: boolean
+    createdAt: Date
+    _count: RiskRuleCountAggregateOutputType | null
+    _min: RiskRuleMinAggregateOutputType | null
+    _max: RiskRuleMaxAggregateOutputType | null
+  }
+
+  type GetRiskRuleGroupByPayload<T extends RiskRuleGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<RiskRuleGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof RiskRuleGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], RiskRuleGroupByOutputType[P]>
+            : GetScalarType<T[P], RiskRuleGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type RiskRuleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    type?: boolean
+    config?: boolean
+    enabled?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["riskRule"]>
+
+  export type RiskRuleSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    type?: boolean
+    config?: boolean
+    enabled?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["riskRule"]>
+
+  export type RiskRuleSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    type?: boolean
+    config?: boolean
+    enabled?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["riskRule"]>
+
+  export type RiskRuleSelectScalar = {
+    id?: boolean
+    name?: boolean
+    type?: boolean
+    config?: boolean
+    enabled?: boolean
+    createdAt?: boolean
+  }
+
+  export type RiskRuleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "type" | "config" | "enabled" | "createdAt", ExtArgs["result"]["riskRule"]>
+
+  export type $RiskRulePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "RiskRule"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      type: string
+      config: Prisma.JsonValue
+      enabled: boolean
+      createdAt: Date
+    }, ExtArgs["result"]["riskRule"]>
+    composites: {}
+  }
+
+  type RiskRuleGetPayload<S extends boolean | null | undefined | RiskRuleDefaultArgs> = $Result.GetResult<Prisma.$RiskRulePayload, S>
+
+  type RiskRuleCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<RiskRuleFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: RiskRuleCountAggregateInputType | true
+    }
+
+  export interface RiskRuleDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['RiskRule'], meta: { name: 'RiskRule' } }
+    /**
+     * Find zero or one RiskRule that matches the filter.
+     * @param {RiskRuleFindUniqueArgs} args - Arguments to find a RiskRule
+     * @example
+     * // Get one RiskRule
+     * const riskRule = await prisma.riskRule.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends RiskRuleFindUniqueArgs>(args: SelectSubset<T, RiskRuleFindUniqueArgs<ExtArgs>>): Prisma__RiskRuleClient<$Result.GetResult<Prisma.$RiskRulePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one RiskRule that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {RiskRuleFindUniqueOrThrowArgs} args - Arguments to find a RiskRule
+     * @example
+     * // Get one RiskRule
+     * const riskRule = await prisma.riskRule.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends RiskRuleFindUniqueOrThrowArgs>(args: SelectSubset<T, RiskRuleFindUniqueOrThrowArgs<ExtArgs>>): Prisma__RiskRuleClient<$Result.GetResult<Prisma.$RiskRulePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first RiskRule that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RiskRuleFindFirstArgs} args - Arguments to find a RiskRule
+     * @example
+     * // Get one RiskRule
+     * const riskRule = await prisma.riskRule.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends RiskRuleFindFirstArgs>(args?: SelectSubset<T, RiskRuleFindFirstArgs<ExtArgs>>): Prisma__RiskRuleClient<$Result.GetResult<Prisma.$RiskRulePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first RiskRule that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RiskRuleFindFirstOrThrowArgs} args - Arguments to find a RiskRule
+     * @example
+     * // Get one RiskRule
+     * const riskRule = await prisma.riskRule.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends RiskRuleFindFirstOrThrowArgs>(args?: SelectSubset<T, RiskRuleFindFirstOrThrowArgs<ExtArgs>>): Prisma__RiskRuleClient<$Result.GetResult<Prisma.$RiskRulePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more RiskRules that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RiskRuleFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all RiskRules
+     * const riskRules = await prisma.riskRule.findMany()
+     * 
+     * // Get first 10 RiskRules
+     * const riskRules = await prisma.riskRule.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const riskRuleWithIdOnly = await prisma.riskRule.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends RiskRuleFindManyArgs>(args?: SelectSubset<T, RiskRuleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RiskRulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a RiskRule.
+     * @param {RiskRuleCreateArgs} args - Arguments to create a RiskRule.
+     * @example
+     * // Create one RiskRule
+     * const RiskRule = await prisma.riskRule.create({
+     *   data: {
+     *     // ... data to create a RiskRule
+     *   }
+     * })
+     * 
+     */
+    create<T extends RiskRuleCreateArgs>(args: SelectSubset<T, RiskRuleCreateArgs<ExtArgs>>): Prisma__RiskRuleClient<$Result.GetResult<Prisma.$RiskRulePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many RiskRules.
+     * @param {RiskRuleCreateManyArgs} args - Arguments to create many RiskRules.
+     * @example
+     * // Create many RiskRules
+     * const riskRule = await prisma.riskRule.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends RiskRuleCreateManyArgs>(args?: SelectSubset<T, RiskRuleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many RiskRules and returns the data saved in the database.
+     * @param {RiskRuleCreateManyAndReturnArgs} args - Arguments to create many RiskRules.
+     * @example
+     * // Create many RiskRules
+     * const riskRule = await prisma.riskRule.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many RiskRules and only return the `id`
+     * const riskRuleWithIdOnly = await prisma.riskRule.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends RiskRuleCreateManyAndReturnArgs>(args?: SelectSubset<T, RiskRuleCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RiskRulePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a RiskRule.
+     * @param {RiskRuleDeleteArgs} args - Arguments to delete one RiskRule.
+     * @example
+     * // Delete one RiskRule
+     * const RiskRule = await prisma.riskRule.delete({
+     *   where: {
+     *     // ... filter to delete one RiskRule
+     *   }
+     * })
+     * 
+     */
+    delete<T extends RiskRuleDeleteArgs>(args: SelectSubset<T, RiskRuleDeleteArgs<ExtArgs>>): Prisma__RiskRuleClient<$Result.GetResult<Prisma.$RiskRulePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one RiskRule.
+     * @param {RiskRuleUpdateArgs} args - Arguments to update one RiskRule.
+     * @example
+     * // Update one RiskRule
+     * const riskRule = await prisma.riskRule.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends RiskRuleUpdateArgs>(args: SelectSubset<T, RiskRuleUpdateArgs<ExtArgs>>): Prisma__RiskRuleClient<$Result.GetResult<Prisma.$RiskRulePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more RiskRules.
+     * @param {RiskRuleDeleteManyArgs} args - Arguments to filter RiskRules to delete.
+     * @example
+     * // Delete a few RiskRules
+     * const { count } = await prisma.riskRule.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends RiskRuleDeleteManyArgs>(args?: SelectSubset<T, RiskRuleDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more RiskRules.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RiskRuleUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many RiskRules
+     * const riskRule = await prisma.riskRule.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends RiskRuleUpdateManyArgs>(args: SelectSubset<T, RiskRuleUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more RiskRules and returns the data updated in the database.
+     * @param {RiskRuleUpdateManyAndReturnArgs} args - Arguments to update many RiskRules.
+     * @example
+     * // Update many RiskRules
+     * const riskRule = await prisma.riskRule.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more RiskRules and only return the `id`
+     * const riskRuleWithIdOnly = await prisma.riskRule.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends RiskRuleUpdateManyAndReturnArgs>(args: SelectSubset<T, RiskRuleUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RiskRulePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one RiskRule.
+     * @param {RiskRuleUpsertArgs} args - Arguments to update or create a RiskRule.
+     * @example
+     * // Update or create a RiskRule
+     * const riskRule = await prisma.riskRule.upsert({
+     *   create: {
+     *     // ... data to create a RiskRule
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the RiskRule we want to update
+     *   }
+     * })
+     */
+    upsert<T extends RiskRuleUpsertArgs>(args: SelectSubset<T, RiskRuleUpsertArgs<ExtArgs>>): Prisma__RiskRuleClient<$Result.GetResult<Prisma.$RiskRulePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of RiskRules.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RiskRuleCountArgs} args - Arguments to filter RiskRules to count.
+     * @example
+     * // Count the number of RiskRules
+     * const count = await prisma.riskRule.count({
+     *   where: {
+     *     // ... the filter for the RiskRules we want to count
+     *   }
+     * })
+    **/
+    count<T extends RiskRuleCountArgs>(
+      args?: Subset<T, RiskRuleCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], RiskRuleCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a RiskRule.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RiskRuleAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends RiskRuleAggregateArgs>(args: Subset<T, RiskRuleAggregateArgs>): Prisma.PrismaPromise<GetRiskRuleAggregateType<T>>
+
+    /**
+     * Group by RiskRule.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RiskRuleGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends RiskRuleGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: RiskRuleGroupByArgs['orderBy'] }
+        : { orderBy?: RiskRuleGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, RiskRuleGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRiskRuleGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the RiskRule model
+   */
+  readonly fields: RiskRuleFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for RiskRule.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__RiskRuleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the RiskRule model
+   */
+  interface RiskRuleFieldRefs {
+    readonly id: FieldRef<"RiskRule", 'String'>
+    readonly name: FieldRef<"RiskRule", 'String'>
+    readonly type: FieldRef<"RiskRule", 'String'>
+    readonly config: FieldRef<"RiskRule", 'Json'>
+    readonly enabled: FieldRef<"RiskRule", 'Boolean'>
+    readonly createdAt: FieldRef<"RiskRule", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * RiskRule findUnique
+   */
+  export type RiskRuleFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskRule
+     */
+    select?: RiskRuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskRule
+     */
+    omit?: RiskRuleOmit<ExtArgs> | null
+    /**
+     * Filter, which RiskRule to fetch.
+     */
+    where: RiskRuleWhereUniqueInput
+  }
+
+  /**
+   * RiskRule findUniqueOrThrow
+   */
+  export type RiskRuleFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskRule
+     */
+    select?: RiskRuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskRule
+     */
+    omit?: RiskRuleOmit<ExtArgs> | null
+    /**
+     * Filter, which RiskRule to fetch.
+     */
+    where: RiskRuleWhereUniqueInput
+  }
+
+  /**
+   * RiskRule findFirst
+   */
+  export type RiskRuleFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskRule
+     */
+    select?: RiskRuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskRule
+     */
+    omit?: RiskRuleOmit<ExtArgs> | null
+    /**
+     * Filter, which RiskRule to fetch.
+     */
+    where?: RiskRuleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RiskRules to fetch.
+     */
+    orderBy?: RiskRuleOrderByWithRelationInput | RiskRuleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for RiskRules.
+     */
+    cursor?: RiskRuleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RiskRules from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RiskRules.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RiskRules.
+     */
+    distinct?: RiskRuleScalarFieldEnum | RiskRuleScalarFieldEnum[]
+  }
+
+  /**
+   * RiskRule findFirstOrThrow
+   */
+  export type RiskRuleFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskRule
+     */
+    select?: RiskRuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskRule
+     */
+    omit?: RiskRuleOmit<ExtArgs> | null
+    /**
+     * Filter, which RiskRule to fetch.
+     */
+    where?: RiskRuleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RiskRules to fetch.
+     */
+    orderBy?: RiskRuleOrderByWithRelationInput | RiskRuleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for RiskRules.
+     */
+    cursor?: RiskRuleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RiskRules from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RiskRules.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RiskRules.
+     */
+    distinct?: RiskRuleScalarFieldEnum | RiskRuleScalarFieldEnum[]
+  }
+
+  /**
+   * RiskRule findMany
+   */
+  export type RiskRuleFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskRule
+     */
+    select?: RiskRuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskRule
+     */
+    omit?: RiskRuleOmit<ExtArgs> | null
+    /**
+     * Filter, which RiskRules to fetch.
+     */
+    where?: RiskRuleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RiskRules to fetch.
+     */
+    orderBy?: RiskRuleOrderByWithRelationInput | RiskRuleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing RiskRules.
+     */
+    cursor?: RiskRuleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RiskRules from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RiskRules.
+     */
+    skip?: number
+    distinct?: RiskRuleScalarFieldEnum | RiskRuleScalarFieldEnum[]
+  }
+
+  /**
+   * RiskRule create
+   */
+  export type RiskRuleCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskRule
+     */
+    select?: RiskRuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskRule
+     */
+    omit?: RiskRuleOmit<ExtArgs> | null
+    /**
+     * The data needed to create a RiskRule.
+     */
+    data: XOR<RiskRuleCreateInput, RiskRuleUncheckedCreateInput>
+  }
+
+  /**
+   * RiskRule createMany
+   */
+  export type RiskRuleCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many RiskRules.
+     */
+    data: RiskRuleCreateManyInput | RiskRuleCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * RiskRule createManyAndReturn
+   */
+  export type RiskRuleCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskRule
+     */
+    select?: RiskRuleSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskRule
+     */
+    omit?: RiskRuleOmit<ExtArgs> | null
+    /**
+     * The data used to create many RiskRules.
+     */
+    data: RiskRuleCreateManyInput | RiskRuleCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * RiskRule update
+   */
+  export type RiskRuleUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskRule
+     */
+    select?: RiskRuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskRule
+     */
+    omit?: RiskRuleOmit<ExtArgs> | null
+    /**
+     * The data needed to update a RiskRule.
+     */
+    data: XOR<RiskRuleUpdateInput, RiskRuleUncheckedUpdateInput>
+    /**
+     * Choose, which RiskRule to update.
+     */
+    where: RiskRuleWhereUniqueInput
+  }
+
+  /**
+   * RiskRule updateMany
+   */
+  export type RiskRuleUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update RiskRules.
+     */
+    data: XOR<RiskRuleUpdateManyMutationInput, RiskRuleUncheckedUpdateManyInput>
+    /**
+     * Filter which RiskRules to update
+     */
+    where?: RiskRuleWhereInput
+    /**
+     * Limit how many RiskRules to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * RiskRule updateManyAndReturn
+   */
+  export type RiskRuleUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskRule
+     */
+    select?: RiskRuleSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskRule
+     */
+    omit?: RiskRuleOmit<ExtArgs> | null
+    /**
+     * The data used to update RiskRules.
+     */
+    data: XOR<RiskRuleUpdateManyMutationInput, RiskRuleUncheckedUpdateManyInput>
+    /**
+     * Filter which RiskRules to update
+     */
+    where?: RiskRuleWhereInput
+    /**
+     * Limit how many RiskRules to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * RiskRule upsert
+   */
+  export type RiskRuleUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskRule
+     */
+    select?: RiskRuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskRule
+     */
+    omit?: RiskRuleOmit<ExtArgs> | null
+    /**
+     * The filter to search for the RiskRule to update in case it exists.
+     */
+    where: RiskRuleWhereUniqueInput
+    /**
+     * In case the RiskRule found by the `where` argument doesn't exist, create a new RiskRule with this data.
+     */
+    create: XOR<RiskRuleCreateInput, RiskRuleUncheckedCreateInput>
+    /**
+     * In case the RiskRule was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<RiskRuleUpdateInput, RiskRuleUncheckedUpdateInput>
+  }
+
+  /**
+   * RiskRule delete
+   */
+  export type RiskRuleDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskRule
+     */
+    select?: RiskRuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskRule
+     */
+    omit?: RiskRuleOmit<ExtArgs> | null
+    /**
+     * Filter which RiskRule to delete.
+     */
+    where: RiskRuleWhereUniqueInput
+  }
+
+  /**
+   * RiskRule deleteMany
+   */
+  export type RiskRuleDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which RiskRules to delete
+     */
+    where?: RiskRuleWhereInput
+    /**
+     * Limit how many RiskRules to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * RiskRule without action
+   */
+  export type RiskRuleDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskRule
+     */
+    select?: RiskRuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskRule
+     */
+    omit?: RiskRuleOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model RiskLog
+   */
+
+  export type AggregateRiskLog = {
+    _count: RiskLogCountAggregateOutputType | null
+    _min: RiskLogMinAggregateOutputType | null
+    _max: RiskLogMaxAggregateOutputType | null
+  }
+
+  export type RiskLogMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    transactionId: string | null
+    ruleName: string | null
+    reason: string | null
+    createdAt: Date | null
+  }
+
+  export type RiskLogMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    transactionId: string | null
+    ruleName: string | null
+    reason: string | null
+    createdAt: Date | null
+  }
+
+  export type RiskLogCountAggregateOutputType = {
+    id: number
+    userId: number
+    transactionId: number
+    ruleName: number
+    reason: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type RiskLogMinAggregateInputType = {
+    id?: true
+    userId?: true
+    transactionId?: true
+    ruleName?: true
+    reason?: true
+    createdAt?: true
+  }
+
+  export type RiskLogMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    transactionId?: true
+    ruleName?: true
+    reason?: true
+    createdAt?: true
+  }
+
+  export type RiskLogCountAggregateInputType = {
+    id?: true
+    userId?: true
+    transactionId?: true
+    ruleName?: true
+    reason?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type RiskLogAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which RiskLog to aggregate.
+     */
+    where?: RiskLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RiskLogs to fetch.
+     */
+    orderBy?: RiskLogOrderByWithRelationInput | RiskLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: RiskLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RiskLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RiskLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned RiskLogs
+    **/
+    _count?: true | RiskLogCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: RiskLogMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: RiskLogMaxAggregateInputType
+  }
+
+  export type GetRiskLogAggregateType<T extends RiskLogAggregateArgs> = {
+        [P in keyof T & keyof AggregateRiskLog]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRiskLog[P]>
+      : GetScalarType<T[P], AggregateRiskLog[P]>
+  }
+
+
+
+
+  export type RiskLogGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RiskLogWhereInput
+    orderBy?: RiskLogOrderByWithAggregationInput | RiskLogOrderByWithAggregationInput[]
+    by: RiskLogScalarFieldEnum[] | RiskLogScalarFieldEnum
+    having?: RiskLogScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: RiskLogCountAggregateInputType | true
+    _min?: RiskLogMinAggregateInputType
+    _max?: RiskLogMaxAggregateInputType
+  }
+
+  export type RiskLogGroupByOutputType = {
+    id: string
+    userId: string
+    transactionId: string
+    ruleName: string
+    reason: string
+    createdAt: Date
+    _count: RiskLogCountAggregateOutputType | null
+    _min: RiskLogMinAggregateOutputType | null
+    _max: RiskLogMaxAggregateOutputType | null
+  }
+
+  type GetRiskLogGroupByPayload<T extends RiskLogGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<RiskLogGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof RiskLogGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], RiskLogGroupByOutputType[P]>
+            : GetScalarType<T[P], RiskLogGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type RiskLogSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    transactionId?: boolean
+    ruleName?: boolean
+    reason?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["riskLog"]>
+
+  export type RiskLogSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    transactionId?: boolean
+    ruleName?: boolean
+    reason?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["riskLog"]>
+
+  export type RiskLogSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    transactionId?: boolean
+    ruleName?: boolean
+    reason?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["riskLog"]>
+
+  export type RiskLogSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    transactionId?: boolean
+    ruleName?: boolean
+    reason?: boolean
+    createdAt?: boolean
+  }
+
+  export type RiskLogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "transactionId" | "ruleName" | "reason" | "createdAt", ExtArgs["result"]["riskLog"]>
+
+  export type $RiskLogPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "RiskLog"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      transactionId: string
+      ruleName: string
+      reason: string
+      createdAt: Date
+    }, ExtArgs["result"]["riskLog"]>
+    composites: {}
+  }
+
+  type RiskLogGetPayload<S extends boolean | null | undefined | RiskLogDefaultArgs> = $Result.GetResult<Prisma.$RiskLogPayload, S>
+
+  type RiskLogCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<RiskLogFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: RiskLogCountAggregateInputType | true
+    }
+
+  export interface RiskLogDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['RiskLog'], meta: { name: 'RiskLog' } }
+    /**
+     * Find zero or one RiskLog that matches the filter.
+     * @param {RiskLogFindUniqueArgs} args - Arguments to find a RiskLog
+     * @example
+     * // Get one RiskLog
+     * const riskLog = await prisma.riskLog.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends RiskLogFindUniqueArgs>(args: SelectSubset<T, RiskLogFindUniqueArgs<ExtArgs>>): Prisma__RiskLogClient<$Result.GetResult<Prisma.$RiskLogPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one RiskLog that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {RiskLogFindUniqueOrThrowArgs} args - Arguments to find a RiskLog
+     * @example
+     * // Get one RiskLog
+     * const riskLog = await prisma.riskLog.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends RiskLogFindUniqueOrThrowArgs>(args: SelectSubset<T, RiskLogFindUniqueOrThrowArgs<ExtArgs>>): Prisma__RiskLogClient<$Result.GetResult<Prisma.$RiskLogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first RiskLog that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RiskLogFindFirstArgs} args - Arguments to find a RiskLog
+     * @example
+     * // Get one RiskLog
+     * const riskLog = await prisma.riskLog.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends RiskLogFindFirstArgs>(args?: SelectSubset<T, RiskLogFindFirstArgs<ExtArgs>>): Prisma__RiskLogClient<$Result.GetResult<Prisma.$RiskLogPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first RiskLog that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RiskLogFindFirstOrThrowArgs} args - Arguments to find a RiskLog
+     * @example
+     * // Get one RiskLog
+     * const riskLog = await prisma.riskLog.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends RiskLogFindFirstOrThrowArgs>(args?: SelectSubset<T, RiskLogFindFirstOrThrowArgs<ExtArgs>>): Prisma__RiskLogClient<$Result.GetResult<Prisma.$RiskLogPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more RiskLogs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RiskLogFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all RiskLogs
+     * const riskLogs = await prisma.riskLog.findMany()
+     * 
+     * // Get first 10 RiskLogs
+     * const riskLogs = await prisma.riskLog.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const riskLogWithIdOnly = await prisma.riskLog.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends RiskLogFindManyArgs>(args?: SelectSubset<T, RiskLogFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RiskLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a RiskLog.
+     * @param {RiskLogCreateArgs} args - Arguments to create a RiskLog.
+     * @example
+     * // Create one RiskLog
+     * const RiskLog = await prisma.riskLog.create({
+     *   data: {
+     *     // ... data to create a RiskLog
+     *   }
+     * })
+     * 
+     */
+    create<T extends RiskLogCreateArgs>(args: SelectSubset<T, RiskLogCreateArgs<ExtArgs>>): Prisma__RiskLogClient<$Result.GetResult<Prisma.$RiskLogPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many RiskLogs.
+     * @param {RiskLogCreateManyArgs} args - Arguments to create many RiskLogs.
+     * @example
+     * // Create many RiskLogs
+     * const riskLog = await prisma.riskLog.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends RiskLogCreateManyArgs>(args?: SelectSubset<T, RiskLogCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many RiskLogs and returns the data saved in the database.
+     * @param {RiskLogCreateManyAndReturnArgs} args - Arguments to create many RiskLogs.
+     * @example
+     * // Create many RiskLogs
+     * const riskLog = await prisma.riskLog.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many RiskLogs and only return the `id`
+     * const riskLogWithIdOnly = await prisma.riskLog.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends RiskLogCreateManyAndReturnArgs>(args?: SelectSubset<T, RiskLogCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RiskLogPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a RiskLog.
+     * @param {RiskLogDeleteArgs} args - Arguments to delete one RiskLog.
+     * @example
+     * // Delete one RiskLog
+     * const RiskLog = await prisma.riskLog.delete({
+     *   where: {
+     *     // ... filter to delete one RiskLog
+     *   }
+     * })
+     * 
+     */
+    delete<T extends RiskLogDeleteArgs>(args: SelectSubset<T, RiskLogDeleteArgs<ExtArgs>>): Prisma__RiskLogClient<$Result.GetResult<Prisma.$RiskLogPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one RiskLog.
+     * @param {RiskLogUpdateArgs} args - Arguments to update one RiskLog.
+     * @example
+     * // Update one RiskLog
+     * const riskLog = await prisma.riskLog.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends RiskLogUpdateArgs>(args: SelectSubset<T, RiskLogUpdateArgs<ExtArgs>>): Prisma__RiskLogClient<$Result.GetResult<Prisma.$RiskLogPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more RiskLogs.
+     * @param {RiskLogDeleteManyArgs} args - Arguments to filter RiskLogs to delete.
+     * @example
+     * // Delete a few RiskLogs
+     * const { count } = await prisma.riskLog.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends RiskLogDeleteManyArgs>(args?: SelectSubset<T, RiskLogDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more RiskLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RiskLogUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many RiskLogs
+     * const riskLog = await prisma.riskLog.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends RiskLogUpdateManyArgs>(args: SelectSubset<T, RiskLogUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more RiskLogs and returns the data updated in the database.
+     * @param {RiskLogUpdateManyAndReturnArgs} args - Arguments to update many RiskLogs.
+     * @example
+     * // Update many RiskLogs
+     * const riskLog = await prisma.riskLog.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more RiskLogs and only return the `id`
+     * const riskLogWithIdOnly = await prisma.riskLog.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends RiskLogUpdateManyAndReturnArgs>(args: SelectSubset<T, RiskLogUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RiskLogPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one RiskLog.
+     * @param {RiskLogUpsertArgs} args - Arguments to update or create a RiskLog.
+     * @example
+     * // Update or create a RiskLog
+     * const riskLog = await prisma.riskLog.upsert({
+     *   create: {
+     *     // ... data to create a RiskLog
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the RiskLog we want to update
+     *   }
+     * })
+     */
+    upsert<T extends RiskLogUpsertArgs>(args: SelectSubset<T, RiskLogUpsertArgs<ExtArgs>>): Prisma__RiskLogClient<$Result.GetResult<Prisma.$RiskLogPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of RiskLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RiskLogCountArgs} args - Arguments to filter RiskLogs to count.
+     * @example
+     * // Count the number of RiskLogs
+     * const count = await prisma.riskLog.count({
+     *   where: {
+     *     // ... the filter for the RiskLogs we want to count
+     *   }
+     * })
+    **/
+    count<T extends RiskLogCountArgs>(
+      args?: Subset<T, RiskLogCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], RiskLogCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a RiskLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RiskLogAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends RiskLogAggregateArgs>(args: Subset<T, RiskLogAggregateArgs>): Prisma.PrismaPromise<GetRiskLogAggregateType<T>>
+
+    /**
+     * Group by RiskLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RiskLogGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends RiskLogGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: RiskLogGroupByArgs['orderBy'] }
+        : { orderBy?: RiskLogGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, RiskLogGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRiskLogGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the RiskLog model
+   */
+  readonly fields: RiskLogFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for RiskLog.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__RiskLogClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the RiskLog model
+   */
+  interface RiskLogFieldRefs {
+    readonly id: FieldRef<"RiskLog", 'String'>
+    readonly userId: FieldRef<"RiskLog", 'String'>
+    readonly transactionId: FieldRef<"RiskLog", 'String'>
+    readonly ruleName: FieldRef<"RiskLog", 'String'>
+    readonly reason: FieldRef<"RiskLog", 'String'>
+    readonly createdAt: FieldRef<"RiskLog", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * RiskLog findUnique
+   */
+  export type RiskLogFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskLog
+     */
+    select?: RiskLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskLog
+     */
+    omit?: RiskLogOmit<ExtArgs> | null
+    /**
+     * Filter, which RiskLog to fetch.
+     */
+    where: RiskLogWhereUniqueInput
+  }
+
+  /**
+   * RiskLog findUniqueOrThrow
+   */
+  export type RiskLogFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskLog
+     */
+    select?: RiskLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskLog
+     */
+    omit?: RiskLogOmit<ExtArgs> | null
+    /**
+     * Filter, which RiskLog to fetch.
+     */
+    where: RiskLogWhereUniqueInput
+  }
+
+  /**
+   * RiskLog findFirst
+   */
+  export type RiskLogFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskLog
+     */
+    select?: RiskLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskLog
+     */
+    omit?: RiskLogOmit<ExtArgs> | null
+    /**
+     * Filter, which RiskLog to fetch.
+     */
+    where?: RiskLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RiskLogs to fetch.
+     */
+    orderBy?: RiskLogOrderByWithRelationInput | RiskLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for RiskLogs.
+     */
+    cursor?: RiskLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RiskLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RiskLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RiskLogs.
+     */
+    distinct?: RiskLogScalarFieldEnum | RiskLogScalarFieldEnum[]
+  }
+
+  /**
+   * RiskLog findFirstOrThrow
+   */
+  export type RiskLogFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskLog
+     */
+    select?: RiskLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskLog
+     */
+    omit?: RiskLogOmit<ExtArgs> | null
+    /**
+     * Filter, which RiskLog to fetch.
+     */
+    where?: RiskLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RiskLogs to fetch.
+     */
+    orderBy?: RiskLogOrderByWithRelationInput | RiskLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for RiskLogs.
+     */
+    cursor?: RiskLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RiskLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RiskLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RiskLogs.
+     */
+    distinct?: RiskLogScalarFieldEnum | RiskLogScalarFieldEnum[]
+  }
+
+  /**
+   * RiskLog findMany
+   */
+  export type RiskLogFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskLog
+     */
+    select?: RiskLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskLog
+     */
+    omit?: RiskLogOmit<ExtArgs> | null
+    /**
+     * Filter, which RiskLogs to fetch.
+     */
+    where?: RiskLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RiskLogs to fetch.
+     */
+    orderBy?: RiskLogOrderByWithRelationInput | RiskLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing RiskLogs.
+     */
+    cursor?: RiskLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RiskLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RiskLogs.
+     */
+    skip?: number
+    distinct?: RiskLogScalarFieldEnum | RiskLogScalarFieldEnum[]
+  }
+
+  /**
+   * RiskLog create
+   */
+  export type RiskLogCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskLog
+     */
+    select?: RiskLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskLog
+     */
+    omit?: RiskLogOmit<ExtArgs> | null
+    /**
+     * The data needed to create a RiskLog.
+     */
+    data: XOR<RiskLogCreateInput, RiskLogUncheckedCreateInput>
+  }
+
+  /**
+   * RiskLog createMany
+   */
+  export type RiskLogCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many RiskLogs.
+     */
+    data: RiskLogCreateManyInput | RiskLogCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * RiskLog createManyAndReturn
+   */
+  export type RiskLogCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskLog
+     */
+    select?: RiskLogSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskLog
+     */
+    omit?: RiskLogOmit<ExtArgs> | null
+    /**
+     * The data used to create many RiskLogs.
+     */
+    data: RiskLogCreateManyInput | RiskLogCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * RiskLog update
+   */
+  export type RiskLogUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskLog
+     */
+    select?: RiskLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskLog
+     */
+    omit?: RiskLogOmit<ExtArgs> | null
+    /**
+     * The data needed to update a RiskLog.
+     */
+    data: XOR<RiskLogUpdateInput, RiskLogUncheckedUpdateInput>
+    /**
+     * Choose, which RiskLog to update.
+     */
+    where: RiskLogWhereUniqueInput
+  }
+
+  /**
+   * RiskLog updateMany
+   */
+  export type RiskLogUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update RiskLogs.
+     */
+    data: XOR<RiskLogUpdateManyMutationInput, RiskLogUncheckedUpdateManyInput>
+    /**
+     * Filter which RiskLogs to update
+     */
+    where?: RiskLogWhereInput
+    /**
+     * Limit how many RiskLogs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * RiskLog updateManyAndReturn
+   */
+  export type RiskLogUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskLog
+     */
+    select?: RiskLogSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskLog
+     */
+    omit?: RiskLogOmit<ExtArgs> | null
+    /**
+     * The data used to update RiskLogs.
+     */
+    data: XOR<RiskLogUpdateManyMutationInput, RiskLogUncheckedUpdateManyInput>
+    /**
+     * Filter which RiskLogs to update
+     */
+    where?: RiskLogWhereInput
+    /**
+     * Limit how many RiskLogs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * RiskLog upsert
+   */
+  export type RiskLogUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskLog
+     */
+    select?: RiskLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskLog
+     */
+    omit?: RiskLogOmit<ExtArgs> | null
+    /**
+     * The filter to search for the RiskLog to update in case it exists.
+     */
+    where: RiskLogWhereUniqueInput
+    /**
+     * In case the RiskLog found by the `where` argument doesn't exist, create a new RiskLog with this data.
+     */
+    create: XOR<RiskLogCreateInput, RiskLogUncheckedCreateInput>
+    /**
+     * In case the RiskLog was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<RiskLogUpdateInput, RiskLogUncheckedUpdateInput>
+  }
+
+  /**
+   * RiskLog delete
+   */
+  export type RiskLogDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskLog
+     */
+    select?: RiskLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskLog
+     */
+    omit?: RiskLogOmit<ExtArgs> | null
+    /**
+     * Filter which RiskLog to delete.
+     */
+    where: RiskLogWhereUniqueInput
+  }
+
+  /**
+   * RiskLog deleteMany
+   */
+  export type RiskLogDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which RiskLogs to delete
+     */
+    where?: RiskLogWhereInput
+    /**
+     * Limit how many RiskLogs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * RiskLog without action
+   */
+  export type RiskLogDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RiskLog
+     */
+    select?: RiskLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RiskLog
+     */
+    omit?: RiskLogOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -5483,6 +7677,30 @@ export namespace Prisma {
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
+  export const RiskRuleScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    type: 'type',
+    config: 'config',
+    enabled: 'enabled',
+    createdAt: 'createdAt'
+  };
+
+  export type RiskRuleScalarFieldEnum = (typeof RiskRuleScalarFieldEnum)[keyof typeof RiskRuleScalarFieldEnum]
+
+
+  export const RiskLogScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    transactionId: 'transactionId',
+    ruleName: 'ruleName',
+    reason: 'reason',
+    createdAt: 'createdAt'
+  };
+
+  export type RiskLogScalarFieldEnum = (typeof RiskLogScalarFieldEnum)[keyof typeof RiskLogScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -5491,12 +7709,28 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+  export const JsonNullValueInput: {
+    JsonNull: typeof JsonNull
+  };
+
+  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
   export const QueryMode: {
     default: 'default',
     insensitive: 'insensitive'
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -5543,6 +7777,27 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -5808,6 +8063,120 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
+  export type RiskRuleWhereInput = {
+    AND?: RiskRuleWhereInput | RiskRuleWhereInput[]
+    OR?: RiskRuleWhereInput[]
+    NOT?: RiskRuleWhereInput | RiskRuleWhereInput[]
+    id?: StringFilter<"RiskRule"> | string
+    name?: StringFilter<"RiskRule"> | string
+    type?: StringFilter<"RiskRule"> | string
+    config?: JsonFilter<"RiskRule">
+    enabled?: BoolFilter<"RiskRule"> | boolean
+    createdAt?: DateTimeFilter<"RiskRule"> | Date | string
+  }
+
+  export type RiskRuleOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    type?: SortOrder
+    config?: SortOrder
+    enabled?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type RiskRuleWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: RiskRuleWhereInput | RiskRuleWhereInput[]
+    OR?: RiskRuleWhereInput[]
+    NOT?: RiskRuleWhereInput | RiskRuleWhereInput[]
+    name?: StringFilter<"RiskRule"> | string
+    type?: StringFilter<"RiskRule"> | string
+    config?: JsonFilter<"RiskRule">
+    enabled?: BoolFilter<"RiskRule"> | boolean
+    createdAt?: DateTimeFilter<"RiskRule"> | Date | string
+  }, "id">
+
+  export type RiskRuleOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    type?: SortOrder
+    config?: SortOrder
+    enabled?: SortOrder
+    createdAt?: SortOrder
+    _count?: RiskRuleCountOrderByAggregateInput
+    _max?: RiskRuleMaxOrderByAggregateInput
+    _min?: RiskRuleMinOrderByAggregateInput
+  }
+
+  export type RiskRuleScalarWhereWithAggregatesInput = {
+    AND?: RiskRuleScalarWhereWithAggregatesInput | RiskRuleScalarWhereWithAggregatesInput[]
+    OR?: RiskRuleScalarWhereWithAggregatesInput[]
+    NOT?: RiskRuleScalarWhereWithAggregatesInput | RiskRuleScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"RiskRule"> | string
+    name?: StringWithAggregatesFilter<"RiskRule"> | string
+    type?: StringWithAggregatesFilter<"RiskRule"> | string
+    config?: JsonWithAggregatesFilter<"RiskRule">
+    enabled?: BoolWithAggregatesFilter<"RiskRule"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"RiskRule"> | Date | string
+  }
+
+  export type RiskLogWhereInput = {
+    AND?: RiskLogWhereInput | RiskLogWhereInput[]
+    OR?: RiskLogWhereInput[]
+    NOT?: RiskLogWhereInput | RiskLogWhereInput[]
+    id?: StringFilter<"RiskLog"> | string
+    userId?: StringFilter<"RiskLog"> | string
+    transactionId?: StringFilter<"RiskLog"> | string
+    ruleName?: StringFilter<"RiskLog"> | string
+    reason?: StringFilter<"RiskLog"> | string
+    createdAt?: DateTimeFilter<"RiskLog"> | Date | string
+  }
+
+  export type RiskLogOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    transactionId?: SortOrder
+    ruleName?: SortOrder
+    reason?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type RiskLogWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: RiskLogWhereInput | RiskLogWhereInput[]
+    OR?: RiskLogWhereInput[]
+    NOT?: RiskLogWhereInput | RiskLogWhereInput[]
+    userId?: StringFilter<"RiskLog"> | string
+    transactionId?: StringFilter<"RiskLog"> | string
+    ruleName?: StringFilter<"RiskLog"> | string
+    reason?: StringFilter<"RiskLog"> | string
+    createdAt?: DateTimeFilter<"RiskLog"> | Date | string
+  }, "id">
+
+  export type RiskLogOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    transactionId?: SortOrder
+    ruleName?: SortOrder
+    reason?: SortOrder
+    createdAt?: SortOrder
+    _count?: RiskLogCountOrderByAggregateInput
+    _max?: RiskLogMaxOrderByAggregateInput
+    _min?: RiskLogMinOrderByAggregateInput
+  }
+
+  export type RiskLogScalarWhereWithAggregatesInput = {
+    AND?: RiskLogScalarWhereWithAggregatesInput | RiskLogScalarWhereWithAggregatesInput[]
+    OR?: RiskLogScalarWhereWithAggregatesInput[]
+    NOT?: RiskLogScalarWhereWithAggregatesInput | RiskLogScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"RiskLog"> | string
+    userId?: StringWithAggregatesFilter<"RiskLog"> | string
+    transactionId?: StringWithAggregatesFilter<"RiskLog"> | string
+    ruleName?: StringWithAggregatesFilter<"RiskLog"> | string
+    reason?: StringWithAggregatesFilter<"RiskLog"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"RiskLog"> | Date | string
+  }
+
   export type TransactionCreateInput = {
     id?: string
     fromUser: string
@@ -6070,6 +8439,132 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type RiskRuleCreateInput = {
+    id?: string
+    name: string
+    type: string
+    config: JsonNullValueInput | InputJsonValue
+    enabled?: boolean
+    createdAt?: Date | string
+  }
+
+  export type RiskRuleUncheckedCreateInput = {
+    id?: string
+    name: string
+    type: string
+    config: JsonNullValueInput | InputJsonValue
+    enabled?: boolean
+    createdAt?: Date | string
+  }
+
+  export type RiskRuleUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    config?: JsonNullValueInput | InputJsonValue
+    enabled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RiskRuleUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    config?: JsonNullValueInput | InputJsonValue
+    enabled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RiskRuleCreateManyInput = {
+    id?: string
+    name: string
+    type: string
+    config: JsonNullValueInput | InputJsonValue
+    enabled?: boolean
+    createdAt?: Date | string
+  }
+
+  export type RiskRuleUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    config?: JsonNullValueInput | InputJsonValue
+    enabled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RiskRuleUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    config?: JsonNullValueInput | InputJsonValue
+    enabled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RiskLogCreateInput = {
+    id?: string
+    userId: string
+    transactionId: string
+    ruleName: string
+    reason: string
+    createdAt?: Date | string
+  }
+
+  export type RiskLogUncheckedCreateInput = {
+    id?: string
+    userId: string
+    transactionId: string
+    ruleName: string
+    reason: string
+    createdAt?: Date | string
+  }
+
+  export type RiskLogUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    transactionId?: StringFieldUpdateOperationsInput | string
+    ruleName?: StringFieldUpdateOperationsInput | string
+    reason?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RiskLogUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    transactionId?: StringFieldUpdateOperationsInput | string
+    ruleName?: StringFieldUpdateOperationsInput | string
+    reason?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RiskLogCreateManyInput = {
+    id?: string
+    userId: string
+    transactionId: string
+    ruleName: string
+    reason: string
+    createdAt?: Date | string
+  }
+
+  export type RiskLogUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    transactionId?: StringFieldUpdateOperationsInput | string
+    ruleName?: StringFieldUpdateOperationsInput | string
+    reason?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RiskLogUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    transactionId?: StringFieldUpdateOperationsInput | string
+    ruleName?: StringFieldUpdateOperationsInput | string
+    reason?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -6299,6 +8794,120 @@ export namespace Prisma {
     role?: SortOrder
     createdAt?: SortOrder
   }
+  export type JsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type RiskRuleCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    type?: SortOrder
+    config?: SortOrder
+    enabled?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type RiskRuleMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    type?: SortOrder
+    enabled?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type RiskRuleMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    type?: SortOrder
+    enabled?: SortOrder
+    createdAt?: SortOrder
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type RiskLogCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    transactionId?: SortOrder
+    ruleName?: SortOrder
+    reason?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type RiskLogMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    transactionId?: SortOrder
+    ruleName?: SortOrder
+    reason?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type RiskLogMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    transactionId?: SortOrder
+    ruleName?: SortOrder
+    reason?: SortOrder
+    createdAt?: SortOrder
+  }
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
@@ -6360,6 +8969,10 @@ export namespace Prisma {
     delete?: WalletWhereInput | boolean
     connect?: WalletWhereUniqueInput
     update?: XOR<XOR<WalletUpdateToOneWithWhereWithoutUserInput, WalletUpdateWithoutUserInput>, WalletUncheckedUpdateWithoutUserInput>
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -6454,6 +9067,42 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+  export type NestedJsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type UserCreateWithoutWalletInput = {

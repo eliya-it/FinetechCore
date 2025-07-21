@@ -50,6 +50,23 @@ model User {
   password  String
   role      String   @default("user") // or "admin"
   createdAt DateTime @default(now())
+  wallet    Wallet?
+}
 
-  wallet Wallet?
+model RiskRule {
+  id        String   @id @default(uuid())
+  name      String
+  type      String // 'AMOUNT_THRESHOLD', 'TIME_WINDOW', etc.
+  config    Json // dynamic rule config (e.g., { "amount": 100000 })
+  enabled   Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+model RiskLog {
+  id            String   @id @default(uuid())
+  userId        String
+  transactionId String
+  ruleName      String
+  reason        String
+  createdAt     DateTime @default(now())
 }

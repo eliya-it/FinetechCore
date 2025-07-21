@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { prisma } from "../prisma"; // your Prisma client
 import { v4 as uuidv4 } from "uuid";
+import { evaluateRisk } from "../utils/riskEvaluator";
 
 export const transferMoney = async (req: Request, res: Response) => {
   const { toUserEmail, amount } = req.body;
@@ -91,6 +92,18 @@ export const transferMoney = async (req: Request, res: Response) => {
         ],
       }),
     ]);
+    await evaluateRisk({
+      userId: fromUser,
+      transactionId: txId,
+      amount: amountValue,
+    });
+    console.log(
+      await evaluateRisk({
+        userId: fromUser,
+        transactionId: txId,
+        amount: amountValue,
+      })
+    );
 
     return res.status(200).json({
       success: true,
