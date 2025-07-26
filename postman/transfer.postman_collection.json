@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "e4c4282d-7a4e-4463-b07e-755f2f060df4",
+		"name": "Transfer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38299831",
+		"_collection_link": "https://x00000-6838.postman.co/workspace/fintechcore%3Adev~41e08d7e-16c3-49ad-98ca-b10e9bbc0be2/collection/38299831-e4c4282d-7a4e-4463-b07e-755f2f060df4?action=share&source=collection_link&creator=38299831"
+	},
+	"item": [
+		{
+			"name": "transferMoney",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"toUserEmail\": \"user@fin.com\",\r\n    \"amount\": 110000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/transfer",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTransferHistory",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"toUserEmail\": \"user@fin.com\",\r\n    \"amount\": 110000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/transfer/history",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"transfer",
+						"history"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
